@@ -36,7 +36,7 @@ public class ActionRepository extends BaseClass {
 		return actionDomains;
 	}
 
-	public void create(ActionDomain actionDomain) {
+	public void execute(ActionDomain actionDomain) {
 		long startTime = System.nanoTime();
 		try {
 			// Create reader object
@@ -78,7 +78,7 @@ public class ActionRepository extends BaseClass {
 			for (int i = 0; i < readerTdd.getRowCount(tddTargetSheet); i++) {
 				
 				// Get retakt id in tdd file
-				retaktId = readerTdd.getCellData(tddTargetSheet, colRetaktIdTdd, i) ;
+				retaktId = readerTdd.getCellData(tddTargetSheet, colRetaktIdTdd, i);
 				
 				// Filter values using regex and by checking strikethrough
 				if (Pattern.matches("(?=^LB)([a-zA-Z0-9]{6})", retaktId) && readerTdd.isCellDataStrikeThrough(tddTargetSheet, colRetaktIdTdd, i)) {
@@ -123,7 +123,6 @@ public class ActionRepository extends BaseClass {
 						
 						// Check abbr again if value not exist in the previous step
 						if (val.isEmpty()) {
-							
 							String leftRetakID = readerItemList.getCellData(productMappingTargetSheet, colRetaktID - 1, rowPositionProductId);
 							String rightRetakID = readerItemList.getCellData(productMappingTargetSheet, colRetaktID + 1, rowPositionProductId);
 							

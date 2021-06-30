@@ -18,8 +18,8 @@ public class ActionService {
 		return actionRepository.fetchAllActions();
 	}
 
-	public void createItem(ActionDomain actionDomain) {
-		actionRepository.create(actionDomain);
+	public void executeActions(ActionDomain actionDomain) {
+		actionRepository.execute(actionDomain);
 	}
 
 }

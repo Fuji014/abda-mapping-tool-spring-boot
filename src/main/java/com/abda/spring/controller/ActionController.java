@@ -36,7 +36,7 @@ public class ActionController {
 
 	@PostMapping("/api/v1/execute")
 	public void createItem(@RequestBody ActionDomain actionDomain) {
-		actionService.createItem(actionDomain);
+		actionService.executeActions(actionDomain);
 
 	}
 
