@@ -68,7 +68,7 @@ public class ActionRepository extends BaseClass {
 			String productMappingTargetSheet = actionDomain.getProductMappingTargetSheet();
 			String tddTargetSheet = actionDomain.getTddTargetSheet();
 
-			// Stating count is because 0 is occupied by column name
+			// Index 0 is occupied by column name
 			int temp = 1;
 
 			// Get total number of row in tdd file
@@ -78,7 +78,7 @@ public class ActionRepository extends BaseClass {
 			for (int i = 0; i < readerTdd.getRowCount(tddTargetSheet); i++) {
 				
 				// Get retakt id in tdd file
-				retaktId = readerTdd.getCellData(tddTargetSheet, colRetaktIdTdd, i);
+				retaktId = readerTdd.getCellData(tddTargetSheet, colRetaktIdTdd, i) ;
 				
 				// Filter values using regex and by checking strikethrough
 				if (Pattern.matches("(?=^LB)([a-zA-Z0-9]{6})", retaktId) && readerTdd.isCellDataStrikeThrough(tddTargetSheet, colRetaktIdTdd, i)) {
